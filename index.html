@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, red, yellow); 
+            height: 100vh; 
+            margin: 0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Increased width */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea, select, input[type="date"] {
+            width: calc(100% - 16px); /* Adjusted to fit form width */
+            padding: 12px; /* Increased padding */
+            margin-bottom: 15px; /* Increased margin */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px; /* Increased font size */
+        }
+        textarea {
+            height: 100px; /* Increased height for textarea */
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px; /* Increased padding */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px; /* Increased font size */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .radio-group {
+            margin-bottom: 15px; /* Increased margin */
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background music -->
+    <audio autoplay loop>
+        <source src="MARS IMM Lagu Ikatan Mahasiswa Muhammadiyah.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <form id="infoForm">
+        <h1>Pendaftaran Bidang IMM</h1>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label for="nim">NIM:</label>
+        <input type="text" id="nim" name="nim"><br><br>
+
+        <label>Pemilihan pada bidang:</label>
+        <div class="radio-group">
+            <input type="radio" id="programming" name="bidang" value="Programming">
+            <label for="programming">Organ</label><br>
+            <input type="radio" id="desain" name="bidang" value="Desain">
+            <label for="desain">Kader</label><br>
+            <input type="radio" id="jaringan" name="bidang" value="Jaringan">
+            <label for="jaringan">TKK</label><br>
+            <input type="radio" id="data" name="bidang" value="Data">
+            <label for="data">SPM</label>
+        </div>
+
+        <label for="alamat">Alamat:</label>
+        <textarea id="alamat" name="alamat"></textarea><br><br>
+
+        <label for="angkatan">Pilih Angkatan:</label>
+        <select id="angkatan" name="angkatan">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select><br><br>
+
+        <label for="tanggal">Tanggal:</label>
+        <input type="date" id="tanggal" name="tanggal"><br><br>
+
+        <button type="button" onclick="showInfo()">Kirim</button>
+    </form>
+
+    <script>
+        function showInfo() {
+            var nama = document.getElementById("nama").value;
+            var nim = document.getElementById("nim").value;
+            var bidang = document.querySelector('input[name="bidang"]:checked').value;
+            var alamat = document.getElementById("alamat").value;
+            var angkatan = document.getElementById("angkatan").value;
+            var tanggal = document.getElementById("tanggal").value;
+
+            alert("Nama: " + nama +
+                  "\nNIM: " + nim +
+                  "\nPemilihan: " + bidang +
+                  "\nAlamat: " + alamat +
+                  "\nAngkatan: " + angkatan +
+                  "\nTanggal: " + tanggal);
+        }
+    </script>
+</body>
+</html>
